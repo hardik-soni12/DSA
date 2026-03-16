@@ -129,8 +129,6 @@ class LinkedList:
         self.__n -= 1
 
 
-
-
     # printing
     def __str__(self) -> str:
         curr = self.__head
@@ -140,6 +138,20 @@ class LinkedList:
             curr = curr.next
         
         return ' -> '.join(res)
+    
+
+    # searching 
+    def find(self, item):
+        '''returns the index value of the item if present else returns -1'''
+        pos = 0
+        curr = self.__head
+        while curr != None:
+            if curr.data == item:
+                return pos
+            curr = curr.next
+            pos += 1
+        
+        return -1
 
 l = LinkedList()
 l.insert_head(10)
@@ -149,4 +161,4 @@ l.append(0)
 l.insert_after(20, 15)
 print(l)
 
-print((l))
+print(l.find(15))
