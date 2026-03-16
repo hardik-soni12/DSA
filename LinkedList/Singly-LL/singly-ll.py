@@ -41,6 +41,21 @@ class LinkedList:
             curr.next = new_node
 
         self.__n += 1
+
+    
+
+    def insert_after(self, item, value):
+        new_node = Node(value)
+        curr = self.__head
+        while curr is not None and curr.data != item:
+            curr = curr.next
+
+        if curr != None:
+            new_node.next = curr.next
+            curr.next = new_node
+            self.__n += 1
+        else:
+            raise ValueError('Item not found!')
     
 
 
@@ -59,4 +74,5 @@ l.insert_head(10)
 l.insert_head(20)
 l.append(5)
 l.append(0)
+l.insert_after(20, 15)
 print(l)
