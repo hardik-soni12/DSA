@@ -55,4 +55,14 @@ class Stack:
         self.__n += 1
 
 
-    
+    # deletion
+
+    def pop(self):
+        '''remove the item from the top, returns the removed item'''
+        if self.isEmpty():
+            raise IndexError('pop on empty stack')
+        
+        removed_item = self.__top.data
+        self.__top = self.__top.next
+        self.__n -= 1
+        return removed_item
