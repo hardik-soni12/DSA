@@ -146,6 +146,21 @@ class DoublyLinkedList:
         return removed_item
 
 
+    def find(self, item):
+        '''Returns the position of the item if present in linked list,
+        else return -1'''
+
+        curr = self.__head
+        pos = 0
+        while curr != None:
+            if curr.data == item:
+                return pos
+            else:
+                pos += 1
+                curr = curr.next
+        
+        return -1
+            
 
 
 d = DoublyLinkedList()
@@ -156,6 +171,7 @@ d.insert_head(5)
 d.append(13)
 d.insertAfter(5,6)
 print((d))
+print(d.find(13))
 d.pop()
 d.delete_head()
 
