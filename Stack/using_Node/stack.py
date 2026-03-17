@@ -66,3 +66,13 @@ class Stack:
         self.__top = self.__top.next
         self.__n -= 1
         return removed_item
+
+
+s = Stack()
+s.push(10)
+s.push(11)
+s.push(12)
+# s.pop()
+print(s)
+print(s.isEmpty())
+print(s.size())
