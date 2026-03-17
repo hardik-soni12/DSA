@@ -34,9 +34,25 @@ class Stack:
 
     def peek(self):
         '''Returns the top item in the stack'''
-        if not self.isEmpty():
+        if self.isEmpty():
             return 'stack is empty'
 
         return self.__top.data
     
+
+# insertion
+
+    def push(self, value):
+        '''insert value from the top, returns None'''
+
+        new_node = Node(value)
+        if self.isEmpty():
+            self.__top = new_node
+        
+        else:
+            new_node.next = self.__top
+            self.__top = new_node
+        self.__n += 1
+
+
     
