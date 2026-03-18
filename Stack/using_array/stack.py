@@ -5,6 +5,9 @@ class Stack:
         self.top = -1
 
 
+    def __len__(self):
+        return self.top + 1
+
     # insertion
 
     def push(self, value):
@@ -47,13 +50,26 @@ class Stack:
         if self.isEmpty():
             return 'empty stack'
         return self.__items[self.top]
+    
 
+    # deletion
+
+    def pop(self):
+        '''removes item from the top and returns removed item'''
+
+        if self.isEmpty():
+            raise IndexError('pop on empty stack')
+        
+        removed_item = self.__items[self.top]
+        self.__items[self.top] = None
+        self.top -= 1
+        return removed_item
 
 s = Stack(5)
 s.push(10)
 s.push(20)
 s.push(22)
-
+s.pop()
 print(s)
 # s.traverse()
-print(s.peek())
+print(len(s))
