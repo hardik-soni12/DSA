@@ -27,15 +27,33 @@ class Stack:
     
 
     def traverse(self):
+        '''traverse from the top'''
         if self.__items:
             for i in range(len(self.__items)-1,-1, -1):
                 if self.__items[i]:
                     print(self.__items[i])
-            
+
+    
+    # peek and isEmpty
+
+    def isEmpty(self):
+        '''returns True if stack is empty else False'''
+        if self.top == -1:
+            return True
+        return False
+
+    def peek(self):
+        '''returns the top item from th stack if not empty'''
+        if self.isEmpty():
+            return 'empty stack'
+        return self.__items[self.top]
 
 
 s = Stack(5)
-# s.push(10)
-# s.push(20)
+s.push(10)
+s.push(20)
+s.push(22)
+
 print(s)
-s.traverse()
+# s.traverse()
+print(s.peek())
