@@ -18,3 +18,29 @@ class Queue:
         return False
     
 
+    # printing/Iteration
+
+    def __str__(self):
+        curr = self.__front
+        res = []
+        while curr:
+            res.append(str(curr.data))
+            curr += 1
+
+        return '[ '+' ] <- '.join(res)+' ]'
+    
+
+    def __iter__(self):
+        curr = self.__front
+        while curr:
+            yield curr.data
+            curr = curr.next
+
+
+    def peek(self):
+        '''returns the first item from the queue'''
+        if self.__front:
+            return self.__front.data
+        return 'empty queue'
+    
+    
