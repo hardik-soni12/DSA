@@ -14,8 +14,8 @@ class Queue:
         '''returns True of queue is Empty else returns False'''
 
         if self.__front:
-            return True
-        return False
+            return False
+        return True
     
 
     # printing/Iteration
@@ -58,7 +58,24 @@ class Queue:
         self.__n += 1
 
 
-    
+    # deletion
+    def dequeue(self):
+        '''removes item from the front , returns the removed item'''
+
+        if self.isEmpty():
+            raise IndexError('dequeue on empty queue')
+        
+        removed_item = self.__front.data
+        if self.__front == self.__rear:
+            self.__front = self.__rear = None
+        
+        else:
+            self.__front = self.__front.next
+        
+        self.__n -= 1
+        return removed_item
+        
+
 
 
 q = Queue()
@@ -66,4 +83,6 @@ q.enqueue(10)
 q.enqueue(20)
 q.enqueue(30)
 
+print(q)
+q.dequeue()
 print(q)
