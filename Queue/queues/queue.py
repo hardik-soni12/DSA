@@ -25,9 +25,9 @@ class Queue:
         res = []
         while curr:
             res.append(str(curr.data))
-            curr += 1
+            curr = curr.next
 
-        return '[ '+' ] <- '.join(res)+' ]'
+        return '[ '+' ] <- [ '.join(res)+' ]'
     
 
     def __iter__(self):
@@ -44,3 +44,26 @@ class Queue:
         return 'empty queue'
     
     
+    # Insertion
+
+    def enqueue(self, value):
+        '''inserts item from the rear, returns None'''
+        new_node = Node(value)
+        if self.__front is None:
+            self.__front = self.__rear = new_node
+        else:
+            self.__rear.next = new_node
+            self.__rear = new_node
+
+        self.__n += 1
+
+
+    
+
+
+q = Queue()
+q.enqueue(10)
+q.enqueue(20)
+q.enqueue(30)
+
+print(q)
