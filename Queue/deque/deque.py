@@ -15,3 +15,24 @@ class Deque:
         return True
     
     
+    # peek methods
+
+    def PeekFront(self):
+        '''returns the front item from the queue.'''
+
+        if self.isEmpty():
+            return 'Empty queue'
+        
+        return self.__front.data
+    
+
+    def PeekRear(self):
+        '''Returns the Rear item from the queue'''
+
+        if self.isEmpty():
+            return 'Empty queue'
+        
+        return self.__rear.data
+    
+
+    
