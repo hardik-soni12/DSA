@@ -35,4 +35,23 @@ class Deque:
         return self.__rear.data
     
 
+
+    # printing / iteration method
+
+    def __str__(self) -> str:
+        curr = self.__front
+        res = []
+        while curr:
+            res.append(str(curr.data))
+            curr = curr.next
+
+        return '[ '+' ] <-> ['.join(res)+' ]'
     
+
+    def __iter__(self):
+        curr = self.__front
+        while curr:
+            yield curr.data
+            curr = curr.next
+
+        
