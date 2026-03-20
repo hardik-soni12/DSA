@@ -1,6 +1,6 @@
 from node import Node
 
-class Dequeue:
+class Deque:
     def __init__(self):
         self.__front = self.__rear = None
         self.__n = 0
