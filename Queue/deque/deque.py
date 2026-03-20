@@ -45,7 +45,7 @@ class Deque:
             res.append(str(curr.data))
             curr = curr.next
 
-        return '[ '+' ] <-> ['.join(res)+' ]'
+        return '[ '+' ] <-> [ '.join(res)+' ]'
     
 
     def __iter__(self):
@@ -55,3 +55,44 @@ class Deque:
             curr = curr.next
 
         
+    # insertion
+
+    def AddFront(self, value):
+        '''Insert data fron the front, returns None'''
+
+        new_node = Node(value)
+
+        if self.isEmpty():
+            self.__front = self.__rear = new_node
+        
+        else:
+            new_node.next = self.__front
+            self.__front.prev = new_node
+            self.__front = new_node
+        
+        self.__n += 1
+            
+    
+    def AddRear(self, value):
+        '''inserts item from the rear, returns None'''
+        new_node = Node(value)
+        if self.isEmpty():
+            self.__front = self.__rear = new_node
+        
+        else:
+            self.__rear.next = new_node
+            new_node.prev = self.__rear
+            self.__rear = new_node
+
+        self.__n += 1
+
+d = Deque()
+d.AddFront(0)
+d.AddFront(1)
+d.AddFront(2)
+d.AddRear(-1)
+d.AddRear(-2)
+print(d)
+print('length',len(d))
+print('peek from front',d.PeekFront())
+print('peek from rear',d.PeekRear())
