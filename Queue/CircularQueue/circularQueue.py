@@ -31,6 +31,26 @@ class CircularQueue:
         self.__queue[self.__rear] = value
 
     
+    # deletion
+    def dequeue(self):
+        '''removes item from the queue and returns removed item'''
+
+        if self.isEmpty():
+            return 'Queue is empty'
+        
+        removed_item = self.__queue[self.__front]
+
+        if self.__front == self.__rear:
+            # Queue had only one element, now it's empty
+            self.__front = self.__rear = -1
+
+        else:
+    
+            self.__front = (self.__front + 1) % self.size
+
+        return removed_item
+        
+
     
 
 c = CircularQueue(5)
@@ -42,4 +62,11 @@ c.enqueue(40)
 c.enqueue(50)
 print(c.isEmpty())
 print(c.isFull())
+print(c)
+print(c.dequeue())
+print(c.dequeue())
+c.enqueue(60)
+c.enqueue(70)
+c.dequeue()
+c.enqueue(80)
 print(c)
